@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-13 10:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config/settings.py:118
+msgid "Uzbek"
+msgstr "Uzbek"
+
+#: config/settings.py:119
+msgid "Russian"
+msgstr "Russian"
+
+#: config/settings.py:120
+msgid "English"
+msgstr "English"
+
+#: exam/templates/blog.html:67 exam/templates/single.html:59
+msgid "Blogs"
+msgstr "Blogs"
+
+#: exam/templates/blog.html:81 exam/templates/single.html:72
+msgid "Search..."
+msgstr "Search..."
+
+#: exam/templates/blog.html:114
+msgid "Blog"
+msgstr "Blog"
+
+#: exam/templates/blog.html:149
+msgid "Read More"
+msgstr "Read More"
+
+#: exam/templates/blog.html:154
+msgid ""
+"Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot "
+"topilmadi."
+msgstr "No articles have been added yet or nothing was found for your search."
+
+#: exam/templates/blog.html:167
+msgid "Type a keyword and hit enter"
+msgstr "Type a keyword and hit enter"
+
+#: exam/templates/blog.html:174 exam/templates/single.html:201
+msgid "Categories"
+msgstr "Categories"
+
+#: exam/templates/blog.html:184 exam/templates/single.html:211
+msgid "Kategoriyalar mavjud emas"
+msgstr "Categories are not available"
+
+#: exam/templates/single.html:109 exam/templates/single.html:144
+msgid "Kategoriya"
+msgstr "Category"
+
+#: exam/templates/single.html:149
+msgid "ta izoh qoldirilgan"
+msgstr "comment(s) left"
+
+#: exam/templates/single.html:165
+msgid "Hozircha izohlar yo'q."
+msgstr "No comments yet."
+
+#: exam/templates/single.html:173
+msgid "Izoh qoldiring"
+msgstr "Leave a comment"
+
+#: exam/templates/single.html:179
+msgid "Ismingiz"
+msgstr "Your name"
+
+#: exam/templates/single.html:183
+msgid "Email manzilingiz"
+msgstr "Your Email"
+
+#: exam/templates/single.html:187
+msgid "Izoh matni"
+msgstr "Comment text"
+
+#: exam/templates/single.html:191
+msgid "Izohni jo'natish"
+msgstr "Send comment"

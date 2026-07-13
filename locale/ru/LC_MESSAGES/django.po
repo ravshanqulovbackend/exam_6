@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-13 10:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config/settings.py:118
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: config/settings.py:119
+msgid "Russian"
+msgstr "Русский"
+
+#: config/settings.py:120
+msgid "English"
+msgstr "Английский"
+
+#: exam/templates/blog.html:67 exam/templates/single.html:59
+msgid "Blogs"
+msgstr "Блоги"
+
+#: exam/templates/blog.html:81 exam/templates/single.html:72
+msgid "Search..."
+msgstr "Поиск..."
+
+#: exam/templates/blog.html:114
+msgid "Blog"
+msgstr "Блог"
+
+#: exam/templates/blog.html:149
+msgid "Read More"
+msgstr "Читать далее"
+
+#: exam/templates/blog.html:154
+msgid ""
+"Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot "
+"topilmadi."
+msgstr "Пока статей не добавлено или ничего не найдено по вашему запросу."
+
+#: exam/templates/blog.html:167
+msgid "Type a keyword and hit enter"
+msgstr "Введите ключевое слово и нажмите Enter"
+
+#: exam/templates/blog.html:174 exam/templates/single.html:201
+msgid "Categories"
+msgstr "Категории"
+
+#: exam/templates/blog.html:184 exam/templates/single.html:211
+msgid "Kategoriyalar mavjud emas"
+msgstr "Категории отсутствуют"
+
+#: exam/templates/single.html:109 exam/templates/single.html:144
+msgid "Kategoriya"
+msgstr "Категория"
+
+#: exam/templates/single.html:149
+msgid "ta izoh qoldirilgan"
+msgstr "комментария(ев) оставлено"
+
+#: exam/templates/single.html:165
+msgid "Hozircha izohlar yo'q."
+msgstr "Пока комментариев нет."
+
+#: exam/templates/single.html:173
+msgid "Izoh qoldiring"
+msgstr "Оставить комментарий"
+
+#: exam/templates/single.html:179
+msgid "Ismingiz"
+msgstr "Ваше имя"
+
+#: exam/templates/single.html:183
+msgid "Email manzilingiz"
+msgstr "Ваш Email"
+
+#: exam/templates/single.html:187
+msgid "Izoh matni"
+msgstr "Текст комментария"
+
+#: exam/templates/single.html:191
+msgid "Izohni jo'natish"
+msgstr "Отправить комментарий"

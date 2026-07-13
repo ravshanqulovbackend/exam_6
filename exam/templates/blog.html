@@ -5,6 +5,7 @@
 * License: https://creativecommons.org
 */ -->
 {% load static %}
+{% load i18n %}
 
 <!doctype html>
 <html lang="en">
@@ -61,9 +62,9 @@
               <a href="{% url 'home' %}" class="logo m-0 float-start">Blogy<span class="text-primary">.</span></a>
             </div>
 
-            <div class="col-8 text-center">
+            <div class="col-6 text-center">
               <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                <li><a href="{% url 'home' %}">Blogs</a></li>
+                <li class="active"><a href="{% url 'home' %}">{% translate "Blogs" %}</a></li>
                 {% for cat in categories %}
                 {% if cat.post_count > 0 %}
                 <li>
@@ -72,19 +73,31 @@
                 {% endif %}
                 {% endfor %}
               </ul>
-
             </div>
 
-            <div class="col-2 text-end">
+            <div class="col-4 text-end d-flex align-items-center justify-content-end">
               <!-- Navbar ichida faqat bitta toza qidiruv paneli -->
-              <form action="{% url 'home' %}" method="GET"
-                class="search-form d-none d-lg-inline-block justify-content-end">
-                <input type="text" name="q" class="form-control" placeholder="Search..." value="{{ request.GET.q }}">
+              <form action="{% url 'home' %}" method="GET" class="search-form d-none d-lg-inline-block">
+                <input type="text" name="q" class="form-control" placeholder="{% translate 'Search...' %}" value="{{ request.GET.q }}">
                 <span class="bi-search"></span>
               </form>
 
-              <a href="#"
-                class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+              <!-- TEPA O'NG BURCHAKDA CHIQUEVCHI TILLAR MENYUSI -->
+              <form action="{% url 'set_language' %}" method="post" class="d-inline-block ms-3">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                <select name="language" class="form-select form-select-sm border-0 bg-light fw-bold" onchange="this.form.submit()" style="cursor: pointer; padding: 5px 10px; border-radius: 4px;">
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% get_available_languages as LANGUAGES %}
+                  {% for lang_code, lang_name in LANGUAGES %}
+                    <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                      {% if lang_code == 'uz' %}UZ{% elif lang_code == 'ru' %}RU{% else %}EN{% endif %}
+                    </option>
+                  {% endfor %}
+                </select>
+              </form>
+
+              <a href="#" class="burger ms-3 float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
                 <span></span>
               </a>
             </div>
@@ -98,7 +111,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center text-center pt-5">
         <div class="col-lg-6">
-          <h1 class="heading text-white mb-3" data-aos="fade-up">Blog</h1>
+          <h1 class="heading text-white mb-3" data-aos="fade-up">{% translate "Blog" %}</h1>
         </div>
       </div>
     </div>
@@ -125,7 +138,6 @@
               {% endif %}
             </a>
 
-
             <div>
               <!-- Kategoriya va Sana -->
               <span class="date">{{ post.created_at|date:"M. d, Y" }} &bullet; <a
@@ -134,12 +146,12 @@
               <h2><a href="{% url 'single' post.id %}">{{ post.title }}</a></h2>
               <!-- Maqola matni -->
               <p>{{ post.body|truncatewords:20 }}</p>
-              <p><a href="{% url 'single' post.id %}" class="btn btn-sm btn-outline-primary">Read More</a></p>
+              <p><a href="{% url 'single' post.id %}" class="btn btn-sm btn-outline-primary">{% translate "Read More" %}</a></p>
             </div>
           </div>
           {% empty %}
           <!-- Agar bazada maqola bo'lmasa shu matn chiqadi -->
-          <p>Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot topilmadi.</p>
+          <p>{% translate "Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot topilmadi." %}</p>
           {% endfor %}
           <!-- Django Tsikli tugashi -->
 
@@ -152,14 +164,14 @@
           <div class="sidebar-box search-form-wrap mb-4">
             <form action="{% url 'home' %}" method="GET" class="sidebar-search-form">
               <span class="bi-search"></span>
-              <input type="text" name="q" class="form-control" id="s" placeholder="Type a keyword and hit enter"
+              <input type="text" name="q" class="form-control" id="s" placeholder="{% translate 'Type a keyword and hit enter' %}"
                 value="{{ request.GET.q }}">
             </form>
           </div>
 
-          <!-- Dinamik Kategoriyalar Bloki (Faqat siz qo'shgan va ichida posti borlari chiqadi) -->
-           <div class="sidebar-box mt-4">
-            <h3 class="heading mb-3" style="font-size: 20px; font-weight: 700;">Categories</h3>
+          <!-- Dinamik Kategoriyalar Bloki -->
+          <div class="sidebar-box mt-4">
+            <h3 class="heading mb-3" style="font-size: 20px; font-weight: 700;">{% translate "Categories" %}</h3>
             <ul class="categories list-unstyled">
               {% for cat in categories %}
               {% if cat.post_count > 0 %}
@@ -169,16 +181,15 @@
               </li>
               {% endif %}
               {% empty %}
-              <li class="py-2 text-muted">Kategoriyalar mavjud emas</li>
+              <li class="py-2 text-muted">{% translate "Kategoriyalar mavjud emas" %}</li>
               {% endfor %}
             </ul>
+          </div>
+
         </div>
 
-
       </div>
-
     </div>
-  </div>
   </div>
 
   <!-- Preloader -->
