@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-13 10:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: config/settings.py:118
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+#: config/settings.py:119
+msgid "Russian"
+msgstr "Ruscha"
+
+#: config/settings.py:120
+msgid "English"
+msgstr "Inglizcha"
+
+#: exam/templates/blog.html:67 exam/templates/single.html:59
+msgid "Blogs"
+msgstr "Maqolalar"
+
+#: exam/templates/blog.html:81 exam/templates/single.html:72
+msgid "Search..."
+msgstr "Qidiruv..."
+
+#: exam/templates/blog.html:114
+msgid "Blog"
+msgstr "Blog"
+
+#: exam/templates/blog.html:149
+msgid "Read More"
+msgstr "Batafsil"
+
+#: exam/templates/blog.html:154
+msgid ""
+"Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot "
+"topilmadi."
+msgstr "Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot topilmadi."
+
+#: exam/templates/blog.html:167
+msgid "Type a keyword and hit enter"
+msgstr "Kalit so'zni kiriting va Enter tugmasini bosing"
+
+#: exam/templates/blog.html:174 exam/templates/single.html:201
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: exam/templates/blog.html:184 exam/templates/single.html:211
+msgid "Kategoriyalar mavjud emas"
+msgstr "Kategoriyalar mavjud emas"
+
+#: exam/templates/single.html:109 exam/templates/single.html:144
+msgid "Kategoriya"
+msgstr "Kategoriya"
+
+#: exam/templates/single.html:149
+msgid "ta izoh qoldirilgan"
+msgstr "ta izoh qoldirilgan"
+
+#: exam/templates/single.html:165
+msgid "Hozircha izohlar yo'q."
+msgstr "Hozircha izohlar yo'q."
+
+#: exam/templates/single.html:173
+msgid "Izoh qoldiring"
+msgstr "Izoh qoldiring"
+
+#: exam/templates/single.html:179
+msgid "Ismingiz"
+msgstr "Ismingiz"
+
+#: exam/templates/single.html:183
+msgid "Email manzilingiz"
+msgstr "Email manzilingiz"
+
+#: exam/templates/single.html:187
+msgid "Izoh matni"
+msgstr "Izoh matni"
+
+#: exam/templates/single.html:191
+msgid "Izohni jo'natish"
+msgstr "Izohni jo'natish"

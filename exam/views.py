@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q, Count
-from django.contrib import messages  # YANGI QO'SHILGAN QATOR
+from django.contrib import messages  
 from .models import Post, Category, Comment
 
 def home_page(request):
-    # Asosiy sahifa: Maqolalar va kategoriyalarni yuklash
     posts = Post.objects.all().order_by('-created_at')
     categories = Category.objects.annotate(post_count=Count('posts'))
 

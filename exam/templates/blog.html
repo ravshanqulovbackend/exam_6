@@ -1,214 +1,238 @@
-<!-- /*
-* Template Name: Blogy
-* Template Author: Untree.co
-* Template URI: https://untree.co
-* License: https://creativecommons.org
-*/ -->
-{% load static %}
-{% load i18n %}
-
+{% load static %}{% load i18n %}
 <!doctype html>
-<html lang="en">
+<html lang="{{ request.LANGUAGE_CODE }}">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Untree.co">
-
-  <!-- Favicon ulanishi -->
   <link rel="shortcut icon" href="{% static 'exam/favicon.png' %}">
-
-  <meta name="description" content="" />
-  <meta name="keywords" content="bootstrap, bootstrap5" />
 
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Shriftlar ulanishi -->
   <link rel="stylesheet" href="{% static 'exam/fonts/icomoon/style.css' %}">
   <link rel="stylesheet" href="{% static 'exam/fonts/flaticon/font/flaticon.css' %}">
-
-  <!-- Onlayn Bootstrap ikonkalari -->
   <link rel="stylesheet" href="https://jsdelivr.net">
 
-  <!-- CSS fayllar ulanishi -->
   <link rel="stylesheet" href="{% static 'exam/css/tiny-slider.css' %}">
   <link rel="stylesheet" href="{% static 'exam/css/aos.css' %}">
   <link rel="stylesheet" href="{% static 'exam/css/glightbox.min.css' %}">
   <link rel="stylesheet" href="{% static 'exam/css/style.css' %}">
   <link rel="stylesheet" href="{% static 'exam/css/flatpickr.min.css' %}">
 
-  <title>Blogy &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+  <title>Blogy &mdash; Digital Insights</title>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    .site-nav {
+      background: #ffffff !important;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    }
+    .site-nav .logo {
+      color: #0f172a !important;
+      font-weight: 700;
+    }
+    .site-nav .site-menu li a {
+      color: #475569 !important;
+      font-weight: 500;
+    }
+    .site-nav .site-menu li.active a {
+      color: #2563eb !important;
+    }
+    .hero-premium {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      padding: 100px 0;
+    }
+    .blog-card-modern {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid #f1f5f9;
+      margin-bottom: 30px;
+    }
+    .blog-card-modern:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      border-color: #e2e8f0;
+    }
+    .blog-card-img-wrap {
+      flex: 0 0 280px;
+      height: 200px;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .blog-card-modern { flex-direction: column !important; }
+      .blog-card-img-wrap { width: 100%; flex: none; }
+    }
+    .btn-premium-read {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      font-weight: 600;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-premium-read:hover {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+    .sidebar-box-modern {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .badge-premium {
+      background-color: #eff6ff !important;
+      color: #2563eb !important;
+      font-weight: 600;
+    }
+  </style>
 </head>
 
 <body>
 
   <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close">
-        <span class="icofont-close js-menu-toggle"></span>
-      </div>
+      <div class="site-mobile-menu-close"><span class="icofont-close js-menu-toggle"></span></div>
     </div>
     <div class="site-mobile-menu-body"></div>
   </div>
 
-  <nav class="site-nav">
+  <!-- NAVIGATION BAR -->
+  <nav class="site-nav py-3">
     <div class="container">
-      <div class="menu-bg-wrap">
-        <div class="site-navigation">
-          <div class="row g-0 align-items-center">
-            <div class="col-2">
-              <a href="{% url 'home' %}" class="logo m-0 float-start">Blogy<span class="text-primary">.</span></a>
-            </div>
+      <div class="site-navigation">
+        <div class="row g-0 align-items-center">
+          <div class="col-2">
+            <a href="{% url 'home' %}" class="logo m-0 float-start fs-4">Blogy<span class="text-primary">.</span></a>
+          </div>
 
-            <div class="col-6 text-center">
-              <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                <li class="active"><a href="{% url 'home' %}">{% translate "Blogs" %}</a></li>
-                {% for cat in categories %}
+          <div class="col-6 text-center">
+            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+              <li class="active"><a href="{% url 'home' %}">🏠 {% translate "Blogs" %}</a></li>
+              {% for cat in categories %}
                 {% if cat.post_count > 0 %}
-                <li>
-                  <a href="{% url 'home' %}?category={{ cat.id }}">{{ cat.name }}</a>
-                </li>
+                  <li><a href="{% url 'home' %}?category={{ cat.id }}">{{ cat.name }}</a></li>
                 {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-4 text-end d-flex align-items-center justify-content-end">
+            <form action="{% url 'home' %}" method="GET" class="search-form d-none d-lg-inline-block me-2">
+              <input type="text" name="q" class="form-control" placeholder="🔍 {% translate 'Search...' %}" value="{{ request.GET.q }}" style="border-radius: 8px; background-color: #f1f5f9; border: none;">
+            </form>
+
+            <!-- TILLAR SELEKTI (XATOSIZ VA SURILGAN VARIANT) -->
+            <form action="{% url 'set_language' %}" method="post" class="d-inline-block ms-2">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.get_full_path }}">
+              <select name="language" class="form-select form-select-sm fw-bold" onchange="this.form.submit()" style="cursor: pointer; background-color: #f1f5f9; border: none; border-radius: 8px; padding: 6px 28px 6px 12px; min-width: 85px; color: #333;">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% for lang_code, lang_name in LANGUAGES %}
+                  <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                    {% if lang_code == 'uz' %}🇺🇿 UZ{% elif lang_code == 'ru' %}🇷🇺 RU{% else %}🇬🇧 EN{% endif %}
+                  </option>
                 {% endfor %}
-              </ul>
-            </div>
+              </select>
+            </form>
 
-            <div class="col-4 text-end d-flex align-items-center justify-content-end">
-              <!-- Navbar ichida faqat bitta toza qidiruv paneli -->
-              <form action="{% url 'home' %}" method="GET" class="search-form d-none d-lg-inline-block">
-                <input type="text" name="q" class="form-control" placeholder="{% translate 'Search...' %}" value="{{ request.GET.q }}">
-                <span class="bi-search"></span>
-              </form>
-
-              <!-- TEPA O'NG BURCHAKDA CHIQUEVCHI TILLAR MENYUSI -->
-              <form action="{% url 'set_language' %}" method="post" class="d-inline-block ms-3">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                <select name="language" class="form-select form-select-sm border-0 bg-light fw-bold" onchange="this.form.submit()" style="cursor: pointer; padding: 5px 10px; border-radius: 4px;">
-                  {% get_current_language as LANGUAGE_CODE %}
-                  {% get_available_languages as LANGUAGES %}
-                  {% for lang_code, lang_name in LANGUAGES %}
-                    <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
-                      {% if lang_code == 'uz' %}UZ{% elif lang_code == 'ru' %}RU{% else %}EN{% endif %}
-                    </option>
-                  {% endfor %}
-                </select>
-              </form>
-
-              <a href="#" class="burger ms-3 float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-                <span></span>
-              </a>
-            </div>
+            <a href="#" class="burger ms-3 float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"><span></span></a>
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <div class="hero overlay inner-page bg-primary py-5">
-    <div class="container">
-      <div class="row align-items-center justify-content-center text-center pt-5">
-        <div class="col-lg-6">
-          <h1 class="heading text-white mb-3" data-aos="fade-up">{% translate "Blog" %}</h1>
+  <!-- PREMIUM HERO SECTION -->
+  <div class="hero-premium text-center">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <span class="badge bg-primary px-3 py-2 rounded-pill mb-3" style="font-size: 13px; letter-spacing: 1px; font-weight: 600;">✨ BLOG & INSIGHTS</span>
+          <h1 class="heading text-white fw-bold display-4 mb-3">{% translate "Blog" %}</h1>
+          <p class="text-muted fs-5 col-md-10 mx-auto">Zamonaviy texnologiyalar, shaxsiy tajribalar va eng so'nggi yangiliklar olami platformasiga xush kelibsiz! 🚀</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section search-result-wrap">
+  <!-- MAIN CONTENT SECTION -->
+  <div class="section py-5">
     <div class="container">
-      <div class="row posts-entry">
+      <div class="row posts-entry g-4">
 
-        <!-- CHAP TARAFI - DINAMIK MAQOLALAR RO'YXATI -->
+        <!-- CHAP TARAFI - MAQOLALAR -->
         <div class="col-lg-8">
-
-          <!-- Django Tsikli boshlanishi -->
           {% for post in posts %}
-          <div class="blog-entry d-flex blog-entry-search-item">
-            <a href="{% url 'single' post.id %}" class="img-link me-4 rounded"
-              style="flex: 0 0 250px; display: block; overflow: hidden; height: 180px; border-radius: 5px;">
-              {% if post.image %}
-              <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid"
-                style="width: 100%; height: 100%; object-fit: cover;">
-              {% else %}
-              <img src="{% static 'exam/images/img_2.jpg' %}" alt="Default Image" class="img-fluid"
-                style="width: 100%; height: 100%; object-fit: cover;">
-              {% endif %}
-            </a>
+          <div class="blog-card-modern d-flex align-items-center">
+            <div class="blog-card-img-wrap">
+              <a href="{% url 'single' post.id %}">
+                {% if post.image %}
+                  <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-100 h-100" style="object-fit: cover;">
+                {% else %}
+                  <img src="{% static 'exam/images/img_2.jpg' %}" alt="Default" class="w-100 h-100" style="object-fit: cover;">
+                {% endif %}
+              </a>
+            </div>
 
-            <div>
-              <!-- Kategoriya va Sana -->
-              <span class="date">{{ post.created_at|date:"M. d, Y" }} &bullet; <a
-                  href="{% url 'home' %}?category={{ post.category.id }}">{{ post.category.name }}</a></span>
-              <!-- Sarlavha -->
-              <h2><a href="{% url 'single' post.id %}">{{ post.title }}</a></h2>
-              <!-- Maqola matni -->
-              <p>{{ post.body|truncatewords:20 }}</p>
-              <p><a href="{% url 'single' post.id %}" class="btn btn-sm btn-outline-primary">{% translate "Read More" %}</a></p>
+            <div class="p-4" style="flex: 1;">
+              <div class="mb-2" style="font-size: 13px; font-weight: 500;">
+                <span class="text-muted">📅 {{ post.created_at|date:"M. d, Y" }}</span>
+                <span class="mx-2 text-muted">&bullet;</span>
+                <a href="{% url 'home' %}?category={{ post.category.id }}" class="text-primary text-decoration-none fw-semibold">🏷️ {{ post.category.name }}</a>
+              </div>
+              <h3 class="h4 mb-2 fw-bold"><a href="{% url 'single' post.id %}" class="text-decoration-none text-dark">{{ post.title }}</a></h3>
+              <p class="text-muted small mb-3">{{ post.body|truncatewords:16 }}</p>
+              <div>
+                <a href="{% url 'single' post.id %}" class="btn btn-premium-read btn-sm">🚀 {% translate "Read More" %}</a>
+              </div>
             </div>
           </div>
           {% empty %}
-          <!-- Agar bazada maqola bo'lmasa shu matn chiqadi -->
-          <p>{% translate "Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot topilmadi." %}</p>
+          <div class="text-center py-5 bg-white rounded-3 border">
+            <p class="text-muted fs-5 m-0">ℹ️ {% translate "Hozircha hech qanday maqola qo'shilmagan yoki qidiruv bo'yicha ma'lumot topilmadi." %}</p>
+          </div>
           {% endfor %}
-          <!-- Django Tsikli tugashi -->
-
         </div>
 
-        <!-- O'NG TARAFI - SIDEBAR (QIDIRUV VA KATEGORIYALAR) -->
-        <div class="col-lg-4 sidebar shadow-sm p-4 bg-light rounded">
-
-          <!-- Sidebar Ichidagi Qidiruv -->
-          <div class="sidebar-box search-form-wrap mb-4">
-            <form action="{% url 'home' %}" method="GET" class="sidebar-search-form">
-              <span class="bi-search"></span>
-              <input type="text" name="q" class="form-control" id="s" placeholder="{% translate 'Type a keyword and hit enter' %}"
-                value="{{ request.GET.q }}">
+        <!-- O'NG TARAFI - SIDEBAR -->
+        <div class="col-lg-4">
+          <div class="sidebar-box-modern mb-4">
+            <form action="{% url 'home' %}" method="GET" class="position-relative">
+              <input type="text" name="q" class="form-control py-2 ps-4 pe-5" placeholder="🔍 {% translate 'Type a keyword and hit enter' %}" value="{{ request.GET.q }}" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;">
             </form>
           </div>
 
-          <!-- Dinamik Kategoriyalar Bloki -->
-          <div class="sidebar-box mt-4">
-            <h3 class="heading mb-3" style="font-size: 20px; font-weight: 700;">{% translate "Categories" %}</h3>
-            <ul class="categories list-unstyled">
+          <div class="sidebar-box-modern">
+            <h4 class="fw-bold mb-4 pb-2 border-bottom" style="font-size: 18px; color: #0f172a;">📂 {% translate "Categories" %}</h4>
+            <ul class="list-unstyled m-0">
               {% for cat in categories %}
-              {% if cat.post_count > 0 %}
-              <li class="py-2 border-bottom d-flex justify-content-between align-items-center">
-                <a href="{% url 'home' %}?category={{ cat.id }}" class="text-decoration-none text-dark">{{ cat.name }}</a>
-                <span class="badge bg-secondary rounded-pill">({{ cat.post_count }})</span>
-              </li>
-              {% endif %}
+                {% if cat.post_count > 0 %}
+                <li class="mb-2 pb-2 border-bottom d-flex justify-content-between align-items-center">
+                  <a href="{% url 'home' %}?category={{ cat.id }}" class="text-decoration-none fw-medium text-secondary">{{ cat.name }}</a>
+                  <span class="badge badge-premium rounded-pill px-2 py-1" style="font-size: 12px;">{{ cat.post_count }}</span>
+                </li>
+                {% endif %}
               {% empty %}
-              <li class="py-2 text-muted">{% translate "Kategoriyalar mavjud emas" %}</li>
+                <li class="text-muted small">❌ {% translate "Kategoriyalar mavjud emas" %}</li>
               {% endfor %}
             </ul>
           </div>
-
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- Preloader -->
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-
-  <script src="{% static 'exam/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'exam/js/tiny-slider.js' %}"></script>
-  <script src="{% static 'exam/js/flatpickr.min.js' %}"></script>
-  <script src="{% static 'exam/js/aos.js' %}"></script>
-  <script src="{% static 'exam/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'exam/js/navbar.js' %}"></script>
-  <script src="{% static 'exam/js/counter.js' %}"></script>
-  <script src="{% static 'exam/js/custom.js' %}"></script>
-
-</body>
-
-</html>
